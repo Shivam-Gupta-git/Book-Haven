@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section - Book Haven</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <div id="navbar">
+      <input type="checkbox" id="check" name="" value="" />
+      <label for="check" id="checkbtn"><i class="fas fa-bars"></i> </label>
+      <div class="logo-box">LOGO</div>
+      <ul>
+        <li class="item"><a href="Home.html">Home</a></li>
+        <li class="item"><a href="index.html">Section</a></li>
+        <li class="item"><a href="contact.html">Contact</a></li>
+        <li class="item"><a href="feedback.html">Feedback</a></li>
+        <li class="item"><a href="about.html">About</a></li>
+      </ul>
+      <div class="search-box">
+        <input
+          type="search"
+          id="search-product"
+          placeholder="Search product name here."
+        />
+      </div>
+      <div class="add-to-box">
+        <!-- <div class="wishlist">
+          <a href="wishlist.html"><i class="fa-solid fa-heart"></i></a>
+          <div class="wishlist-count"></div>
+        </div> -->
+        <!-- <div class="bag">
+          <a href="bag.html"><i class="fa-solid fa-bag-shopping"></i></a>
+          <div class="bag-count"></div>
+        </div> -->
+
+        <div class="dropdown">
+          <button onclick="toggleDropdown()" class="dropbtn">👤</button>
+          <div id="myDropdown" class="dropdown-content">
+            <li class="item auth-item">
+              <a href="login.html" id="login-link">Login</a>
+            </li>
+            <li class="item auth-item">
+              <a href="signup.html" id="signup-link">Sign Up</a>
+            </li>
+            <li class="item auth-item" style="display: none">
+              <a href="#" id="logout-link" onclick="logout()">Logout</a>
+            </li>
+            <li class="item auth-item" style="display: none">
+              <span id="user-info"></span>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- main-item-container -->
+   <div class="main-item-container">
+    <!-- Main-Container -->
+    <div id="main-container">
+       <div id="Filtering-container">
+        <h1>Menu</h1>
+
+        <div class="my-books">
+          <i class="fa-solid fa-book"></i>
+          <p>My Books</p>
+        </div>
+
+        <div class="Favourite-items-container">
+          <div class="wishlist">
+            <a href="wishlist.html"><i class="fa-solid fa-heart"></i>
+              <p>Favorite Books</p>
+            </a>
+            <div class="wishlist-count"></div>
+          </div>
+        </div>
+        
+        <div class="wishlist-items-container">
+          <div class="bag">
+            <a href="bag.html"><i class="fa-solid fa-cart-shopping"></i>
+              <p>Cart Books</p>
+            </a>
+            <div class="bag-count"></div>
+          </div>
+        </div>
+
+        <div class="My-message-items-container">
+          <div class="message">
+            <a href="#"><i class="fa-solid fa-message"></i>
+            <p>Message</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="boots-type-title">
+          <h1>Books Types</h1>
+          <div id="categoryList"></div>
+        </div>
+       </div>
+
+      <div id="items-container"></div>
+    </div>
+        <!-- footer -->
+        <footer>
+          <div class="footer-content">
+            <div class="footer-section">
+              <h3>Book Haven</h3>
+              <p>Your literary paradise for all book lovers.</p>
+            </div>
+            <div class="footer-section">
+              <h3>Quick Links</h3>
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#featured">Featured</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#about">About</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h3>Contact Us</h3>
+              <p>Email: info@bookhaven.com</p>
+              <p>Phone: (555) 123-4567</p>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; 2024 Book Haven. All rights reserved.</p>
+          </div>
+        </footer>
+
+  </div>
+
+
+
+
+
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+    <script src="wishlist.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>
