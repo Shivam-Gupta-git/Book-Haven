@@ -9,14 +9,31 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   </head>
   <body>
     <div id="navbar">
       <input type="checkbox" id="check" name="" value="" />
       <label for="check" id="checkbtn"><i class="fas fa-bars"></i> </label>
-      <div class="logo-box">LOGO</div>
+      <div class="logo-box">
+        <a href="Home.html" class="logo-link">
+          <i class="fa-solid fa-book-bookmark logo-icon"></i>
+          <span class="logo-text">Shivam<span class="logo-accent">Dev</span></span>
+        </a>
+      </div>
+
+      <div class="header-search-pill">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" placeholder="Search..." id="hero-search-input" />
+        <div class="category-divider"></div>
+        <select class="category-select">
+          <option value="all">All categories</option>
+          <option value="fiction">Fiction</option>
+          <option value="travel">Travel</option>
+          <option value="nonfiction">Non-Fiction</option>
+          <option value="education">Education</option>
+        </select>
+      </div>
+
       <ul>
         <li class="item"><a href="Home.html">Home</a></li>
         <li class="item"><a href="index.html">Section</a></li>
@@ -24,9 +41,16 @@
         <li class="item"><a href="feedback.html">Feedback</a></li>
         <li class="item"><a href="about.html">About</a></li>
       </ul>
+
       <div class="add-to-box">
+        <a href="wishlist.html" class="my-basket-btn" title="Wishlist" aria-label="Wishlist">
+          <i class="fa-solid fa-heart"></i>
+        </a>
+        <a href="bag.html" class="my-basket-btn" title="My Basket" aria-label="My Basket">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
         <div class="dropdown">
-          <button onclick="toggleDropdown()" class="dropbtn">👤</button>
+          <button onclick="toggleDropdown()" class="dropbtn" aria-label="Account Menu"><i class="fa-regular fa-user"></i></button>
           <div id="myDropdown" class="dropdown-content">
             <li class="item auth-item">
               <a href="login.html" id="login-link">Login</a>
@@ -45,170 +69,618 @@
       </div>
     </div>
 
-    <!-- Custom Slider Section -->
+    <!-- Custom Slider Section matching Image 1 layout -->
     <section class="slider-section">
       <div class="slider-container">
         <div class="slider">
+          <!-- Slide 1: Western Canada -->
           <div class="slide active">
             <img
-              src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-              alt="Book Collection 1"
+              src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
+              alt="Western Canada"
             />
             <div class="slide-content">
-              <h2>Welcome to Book Haven</h2>
-              <p>Your gateway to literary adventures</p>
+              <h1>Western Canada</h1>
+              <span class="slide-author">by Jack Altman</span>
+              <p>
+                From the ocean-and-mountain backdrop of Vancouver to the exalting landscapes of the Rockies, from the flower gardens of Victoria to Alberta's barren Badlands.
+              </p>
             </div>
             <div class="slide-progress"></div>
           </div>
+          <!-- Slide 2: Paris -->
           <div class="slide">
             <img
-              src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-              alt="Book Collection 2"
+              src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
+              alt="Paris Travel"
             />
             <div class="slide-content">
-              <h2>Best Sellers</h2>
-              <p>Discover our most popular titles</p>
+              <h1>Paris Travel Guide</h1>
+              <span class="slide-author">by Marie Laurent</span>
+              <p>
+                Explore the magical streets, historical monuments, world-class art galleries, and romantic cafes of the enchanting City of Light.
+              </p>
             </div>
             <div class="slide-progress"></div>
           </div>
+          <!-- Slide 3: Cuba -->
           <div class="slide">
             <img
-              src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-              alt="Book Collection 3"
+              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
+              alt="Cuba"
             />
             <div class="slide-content">
-              <h2>New Arrivals</h2>
-              <p>Explore our latest additions</p>
+              <h1>Discovering Cuba</h1>
+              <span class="slide-author">by Carlos Remirez</span>
+              <p>
+                Uncover the vibrant culture, rich history, classic cars, colonial architecture, and tropical rhythms of Havana and beyond.
+              </p>
+            </div>
+            <div class="slide-progress"></div>
+          </div>
+          <!-- Slide 4: Vietnam -->
+          <div class="slide">
+            <img
+              src="https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
+              alt="Vietnam"
+            />
+            <div class="slide-content">
+              <h1>Vietnam Chronicles</h1>
+              <span class="slide-author">by Nguyen Van</span>
+              <p>
+                Journey through emerald waters, limestone islands, bustling night markets, and ancient temples across breathtaking Southeast Asia.
+              </p>
             </div>
             <div class="slide-progress"></div>
           </div>
         </div>
+
         <button class="slider-btn prev-btn">
           <i class="fas fa-chevron-left"></i>
         </button>
         <button class="slider-btn next-btn">
           <i class="fas fa-chevron-right"></i>
         </button>
-        <div class="slider-dots"></div>
+
+        <!-- Thumbnail Cards Strip on Bottom Right -->
+        <div class="hero-thumbnails-container">
+          <div class="thumbnail-card active" data-slide="0">
+            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Canada" />
+            <div class="thumb-badge">Canada</div>
+          </div>
+          <div class="thumbnail-card" data-slide="1">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Paris" />
+            <div class="thumb-badge">Paris</div>
+          </div>
+          <div class="thumbnail-card" data-slide="2">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Cuba" />
+            <div class="thumb-badge">Cuba</div>
+          </div>
+          <div class="thumbnail-card" data-slide="3">
+            <img src="https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Vietnam" />
+            <div class="thumb-badge">Vietnam</div>
+          </div>
+        </div>
+
+        <div class="slider-dots" style="display: none;"></div>
         <div class="slider-timer">
           <span class="current-time">0</span>/<span class="total-time">5</span>s
         </div>
       </div>
     </section>
 
-    <section id="hero" class="hero">
-      <div class="hero-content">
-        <h1>Discover Your Next Favorite Book</h1>
-        <p>Explore our vast collection of books across all genres</p>
-        <button class="cta-button">Shop Now</button>
+    <!-- 3D Coverflow Carousel Section (Image 1 Layout) -->
+    <section class="coverflow-section coverflow-hero-section" id="coverflow-hero">
+      <div class="coverflow-header">
+        <h2 class="coverflow-title">Featured Spotlight</h2>
+        <p class="coverflow-subtitle">Immerse yourself in trending stories and bestsellers</p>
       </div>
-      <div class="hero-image">
-        <img
-          src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-          alt="Books"
-        />
+
+      <div class="coverflow-wrapper">
+        <button class="coverflow-btn coverflow-prev" id="cf-prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="coverflow-container" id="coverflow-container">
+          <div class="coverflow-item" data-index="0" data-item-id="3">
+            <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/book/8/l/w/can-we-be-strangers-again-a-national-bestseller-original-imahc2uqqysegfqj.jpeg?q=70&crop=false" alt="Can We Be Strangers Again?" />
+            <div class="cover-overlay">
+              <h3>Can We Be Strangers Again?</h3>
+              <span>Fiction · ₹149</span>
+            </div>
+          </div>
+          <div class="coverflow-item" data-index="1" data-item-id="9">
+            <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/book/d/n/3/stree-hindi-by-acharya-prashant-original-imah78hzznhcyhzr.jpeg?q=70&crop=false" alt="Stree" />
+            <div class="cover-overlay">
+              <h3>Stree</h3>
+              <span>Philosophy · ₹399</span>
+            </div>
+          </div>
+          <div class="coverflow-item" data-index="2" data-item-id="10">
+            <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/book/k/u/p/that-night-original-imahcgzjagpzjzzg.jpeg?q=70&crop=false" alt="That Night" />
+            <div class="cover-overlay">
+              <h3>That Night</h3>
+              <span>Suspense Thriller · ₹199</span>
+            </div>
+          </div>
+          <div class="coverflow-item active" data-index="3" data-item-id="14">
+            <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/book/s/w/o/-original-imagxnf7stxqnzcp.jpeg?q=70&crop=false" alt="The Psychology of Money" />
+            <div class="cover-overlay">
+              <h3>The Psychology of Money</h3>
+              <span>Bestseller · ₹200</span>
+            </div>
+          </div>
+          <div class="coverflow-item" data-index="4" data-item-id="16">
+            <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/book/c/k/g/the-god-of-small-things-original-imah8xzaqngm8yr8.jpeg?q=70&crop=false" alt="The God of Small Things" />
+            <div class="cover-overlay">
+              <h3>The God of Small Things</h3>
+              <span>Classic Fiction · ₹259</span>
+            </div>
+          </div>
+          <div class="coverflow-item" data-index="5" data-item-id="15">
+            <img src="https://rukminim2.flixcart.com/image/832/832/ksw4ccw0/book/e/l/d/the-diary-of-a-young-girl-english-original-imag6cu5hzxphjch.jpeg?q=70&crop=false" alt="The Diary of a Young Girl" />
+            <div class="cover-overlay">
+              <h3>The Diary of a Young Girl</h3>
+              <span>Memoir · ₹250</span>
+            </div>
+          </div>
+          <div class="coverflow-item" data-index="6" data-item-id="8">
+            <img src="https://rukminim2.flixcart.com/image/832/832/l0sgyvk0/book/1/s/a/and-then-there-were-none-original-imagcgbwyekcgmcy.jpeg?q=70&crop=false" alt="And Then There Were None" />
+            <div class="cover-overlay">
+              <h3>And Then There Were None</h3>
+              <span>Agatha Christie · ₹399</span>
+            </div>
+          </div>
+        </div>
+
+        <button class="coverflow-btn coverflow-next" id="cf-next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </section>
 
-    <section id="featured" class="featured">
-      <h2>Featured Books</h2>
-      <div class="book-grid">
-        <div class="book-card">
-          <img
-            src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-            alt="Book 1"
-          />
-          <h3>The Great Adventure</h3>
-          <p class="author">By John Smith</p>
-          <p class="price">$19.99</p>
-          <button class="add-to-cart">Add to Cart</button>
+    <!-- Warm Aesthetic Store Container matching Image 1 -->
+    <div class="aesthetic-store-container">
+      
+      <!-- 1. SHOP BY COLLECTION -->
+      <section class="collection-section">
+        <h2 class="section-title-aesthetic"><span>☙</span> SHOP BY COLLECTION <span>❧</span></h2>
+        <div class="collection-grid">
+          <a href="index.html?category=Books" class="collection-item">
+            <div class="icon-circle circle-books"><i class="fa-solid fa-book"></i></div>
+            <span>Books</span>
+          </a>
+          <a href="index.html?category=Notebooks" class="collection-item">
+            <div class="icon-circle circle-notebooks"><i class="fa-solid fa-book-open"></i></div>
+            <span>Notebooks</span>
+          </a>
+          <a href="index.html?category=Stationery" class="collection-item">
+            <div class="icon-circle circle-stationery"><i class="fa-solid fa-pencil"></i></div>
+            <span>Stationery</span>
+          </a>
+          <a href="index.html?category=Mugs" class="collection-item">
+            <div class="icon-circle circle-mugs"><i class="fa-solid fa-mug-hot"></i></div>
+            <span>Mugs & Drinkware</span>
+          </a>
+          <a href="index.html?category=Gifts" class="collection-item">
+            <div class="icon-circle circle-gifts"><i class="fa-solid fa-gift"></i></div>
+            <span>Gifts</span>
+          </a>
+          <a href="index.html?category=Bookmarks" class="collection-item">
+            <div class="icon-circle circle-bookmarks"><i class="fa-solid fa-bookmark"></i></div>
+            <span>Bookmarks</span>
+          </a>
+          <a href="index.html?category=Living" class="collection-item">
+            <div class="icon-circle circle-living"><i class="fa-solid fa-seedling"></i></div>
+            <span>Home & Living</span>
+          </a>
+          <a href="index.html?sale=true" class="collection-item">
+            <div class="icon-circle circle-sale"><span>SALE</span></div>
+            <span>Sale</span>
+          </a>
         </div>
-        <div class="book-card">
-          <img
-            src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-            alt="Book 2"
-          />
-          <h3>Mystery Manor</h3>
-          <p class="author">By Jane Doe</p>
-          <p class="price">$24.99</p>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
-        <div class="book-card">
-          <img
-            src="https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-            alt="Book 3"
-          />
-          <h3>Future Dreams</h3>
-          <p class="author">By Robert Brown</p>
-          <p class="price">$29.99</p>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="categories" class="categories">
-      <h2>Browse Categories</h2>
-      <div class="category-grid">
-        <div class="category-card">
-          <i class="fas fa-book"></i>
-          <h3>Fiction</h3>
+      <!-- 2. BEST SELLING BOOKS (Real Data from Store Catalog) -->
+      <section class="store-row-section">
+        <div class="section-header-row">
+          <h2 class="section-title-small">BEST SELLING BOOKS</h2>
+          <a href="index.html" class="view-all-link">View all</a>
         </div>
-        <div class="category-card">
-          <i class="fas fa-flask"></i>
-          <h3>Science</h3>
+        <div class="carousel-wrapper">
+          <button class="row-arrow arrow-left" onclick="scrollRowLeft('books-scroll')"><i class="fas fa-chevron-left"></i></button>
+          <div class="books-scroll-grid" id="books-scroll">
+            <!-- Book 1: The Psychology of Money (ID: 14) -->
+            <div class="aesthetic-book-card" onclick="handleHomeItemClick('14')" title="The Psychology of Money">
+              <div class="book-img-box">
+                <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/book/s/w/o/-original-imagxnf7stxqnzcp.jpeg?q=70&crop=false" alt="The Psychology of Money" />
+              </div>
+              <h4>The Psychology of Money</h4>
+              <p class="book-author">Morgan Housel</p>
+              <div class="rating-box">
+                <span class="stars">★★★★★</span>
+                <span class="score">4.8</span>
+              </div>
+              <div class="price-box">
+                <span class="price-current">₹200</span>
+                <span class="price-old">₹250</span>
+              </div>
+            </div>
+            <!-- Book 2: The Power of Your Subconscious Mind (ID: 13) -->
+            <div class="aesthetic-book-card" onclick="handleHomeItemClick('13')" title="The Power of Your Subconscious Mind">
+              <div class="book-img-box">
+                <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/book/i/1/q/the-power-of-your-subconscious-mind-original-imah3zwjbhxn6z6j.jpeg?q=70&crop=false" alt="The Power of Your Subconscious Mind" />
+              </div>
+              <h4>The Power of Your Subconscious Mind</h4>
+              <p class="book-author">Dr. Joseph Murphy</p>
+              <div class="rating-box">
+                <span class="stars">★★★★<span class="half-star">★</span></span>
+                <span class="score">4.6</span>
+              </div>
+              <div class="price-box">
+                <span class="price-current">₹299</span>
+                <span class="price-old">₹399</span>
+              </div>
+            </div>
+            <!-- Book 3: Harry Potter and the Philosopher's Stone (ID: 5) -->
+            <div class="aesthetic-book-card" onclick="handleHomeItemClick('5')" title="Harry Potter and the Philosopher's Stone">
+              <div class="book-img-box">
+                <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/book/3/f/h/harry-potter-and-the-philosopher-s-stone-original-imah83ubdghb9ebb.jpeg?q=70&crop=false" alt="Harry Potter" />
+              </div>
+              <h4>Harry Potter & the Philosopher's Stone</h4>
+              <p class="book-author">J.K. Rowling</p>
+              <div class="rating-box">
+                <span class="stars">★★★★★</span>
+                <span class="score">4.9</span>
+              </div>
+              <div class="price-box">
+                <span class="price-current">₹200</span>
+                <span class="price-old">₹299</span>
+              </div>
+            </div>
+            <!-- Book 4: Think and Grow Rich (ID: 17) -->
+            <div class="aesthetic-book-card" onclick="handleHomeItemClick('17')" title="Think and Grow Rich">
+              <div class="book-img-box">
+                <img src="https://rukminim2.flixcart.com/image/832/832/book/8/7/1/think-and-grow-rich-original-imadjmxxeugftmpg.jpeg?q=70&crop=false" alt="Think and Grow Rich" />
+              </div>
+              <h4>Think and Grow Rich</h4>
+              <p class="book-author">Napoleon Hill</p>
+              <div class="rating-box">
+                <span class="stars">★★★★<span class="half-star">★</span></span>
+                <span class="score">4.7</span>
+              </div>
+              <div class="price-box">
+                <span class="price-current">₹112</span>
+                <span class="price-old">₹120</span>
+              </div>
+            </div>
+            <!-- Book 5: The Art of War (ID: 21) -->
+            <div class="aesthetic-book-card" onclick="handleHomeItemClick('21')" title="The Art of War">
+              <div class="book-img-box">
+                <img src="https://rukminim2.flixcart.com/image/832/832/jz30nm80/book/3/2/1/the-art-of-war-original-imafj6g5fbp9b6tg.jpeg?q=70&crop=false" alt="The Art of War" />
+              </div>
+              <h4>The Art of War</h4>
+              <p class="book-author">Sun Tzu</p>
+              <div class="rating-box">
+                <span class="stars">★★★★★</span>
+                <span class="score">4.7</span>
+              </div>
+              <div class="price-box">
+                <span class="price-current">₹294</span>
+                <span class="price-old">₹350</span>
+              </div>
+            </div>
+            <!-- Book 6: Life's Amazing Secrets (ID: 12) -->
+            <div class="aesthetic-book-card" onclick="handleHomeItemClick('12')" title="Life's Amazing Secrets">
+              <div class="book-img-box">
+                <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/book/i/u/v/life-s-amazing-secrets-original-imahce8gkz9heacs.jpeg?q=70&crop=false" alt="Life's Amazing Secrets" />
+              </div>
+              <h4>Life's Amazing Secrets</h4>
+              <p class="book-author">Gaur Gopal Das</p>
+              <div class="rating-box">
+                <span class="stars">★★★★<span class="half-star">★</span></span>
+                <span class="score">4.6</span>
+              </div>
+              <div class="price-box">
+                <span class="price-current">₹299</span>
+                <span class="price-old">₹399</span>
+              </div>
+            </div>
+            <!-- Book 7: HOW TO TALK TO ANYONE (ID: 6) -->
+            <div class="aesthetic-book-card" onclick="handleHomeItemClick('6')" title="HOW TO TALK TO ANYONE">
+              <div class="book-img-box">
+                <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/book/f/n/3/how-to-talk-to-anyone-original-imahbxkysjtz8wpz.jpeg?q=70&crop=false" alt="HOW TO TALK TO ANYONE" />
+              </div>
+              <h4>HOW TO TALK TO ANYONE</h4>
+              <p class="book-author">Leil Lowndes</p>
+              <div class="rating-box">
+                <span class="stars">★★★★<span class="half-star">★</span></span>
+                <span class="score">4.5</span>
+              </div>
+              <div class="price-box">
+                <span class="price-current">₹299</span>
+                <span class="price-old">₹350</span>
+              </div>
+            </div>
+            <!-- Book 8: The Book Thief (ID: 24) -->
+            <div class="aesthetic-book-card" onclick="handleHomeItemClick('24')" title="The Book Thief">
+              <div class="book-img-box">
+                <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/book/w/9/q/the-book-thief-original-imah9c8yzhjx8hvb.jpeg?q=70&crop=false" alt="The Book Thief" />
+              </div>
+              <h4>The Book Thief</h4>
+              <p class="book-author">Markus Zusak</p>
+              <div class="rating-box">
+                <span class="stars">★★★★★</span>
+                <span class="score">4.8</span>
+              </div>
+              <div class="price-box">
+                <span class="price-current">₹112</span>
+                <span class="price-old">₹120</span>
+              </div>
+            </div>
+            <!-- Book 9: It Ends with Us + It Starts with Us (ID: 18) -->
+            <div class="aesthetic-book-card" onclick="handleHomeItemClick('18')" title="It Ends with Us">
+              <div class="book-img-box">
+                <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/book/x/p/a/it-ends-with-us-it-starts-with-us-combo-of-2-books-paperback-original-imah87kehpwgvz6m.jpeg?q=70&crop=false" alt="It Ends with Us" />
+              </div>
+              <h4>It Ends with Us + Starts with Us</h4>
+              <p class="book-author">Colleen Hoover</p>
+              <div class="rating-box">
+                <span class="stars">★★★★<span class="half-star">★</span></span>
+                <span class="score">4.6</span>
+              </div>
+              <div class="price-box">
+                <span class="price-current">₹400</span>
+                <span class="price-old">₹500</span>
+              </div>
+            </div>
+            <!-- Book 10: The Diary of a Young Girl (ID: 15) -->
+            <div class="aesthetic-book-card" onclick="handleHomeItemClick('15')" title="The Diary of a Young Girl">
+              <div class="book-img-box">
+                <img src="https://rukminim2.flixcart.com/image/832/832/ksw4ccw0/book/e/l/d/the-diary-of-a-young-girl-english-original-imag6cu5hzxphjch.jpeg?q=70&crop=false" alt="The Diary of a Young Girl" />
+              </div>
+              <h4>The Diary of a Young Girl</h4>
+              <p class="book-author">Anne Frank</p>
+              <div class="rating-box">
+                <span class="stars">★★★★★</span>
+                <span class="score">4.8</span>
+              </div>
+              <div class="price-box">
+                <span class="price-current">₹250</span>
+                <span class="price-old">₹300</span>
+              </div>
+            </div>
+          </div>
+          <button class="row-arrow arrow-right" onclick="scrollRowRight('books-scroll')"><i class="fas fa-chevron-right"></i></button>
         </div>
-        <div class="category-card">
-          <i class="fas fa-history"></i>
-          <h3>History</h3>
-        </div>
-        <div class="category-card">
-          <i class="fas fa-heart"></i>
-          <h3>Romance</h3>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="newsletter" class="newsletter">
-      <div class="newsletter-content">
-        <h2>Subscribe to Our Newsletter</h2>
-        <p>Get updates on new releases and exclusive offers</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" />
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- footer -->
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Book Haven</h3>
-          <p>Your literary paradise for all book lovers.</p>
+      <!-- 3. BEST SELLING NOTEBOOKS & STATIONERY (Real Data from Catalog) -->
+      <section class="store-row-section">
+        <div class="section-header-row">
+          <h2 class="section-title-small">BEST SELLING NOTEBOOKS & STATIONERY</h2>
+          <a href="index.html?category=Stationery" class="view-all-link">View all</a>
         </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
+        <div class="carousel-wrapper">
+          <button class="row-arrow arrow-left" onclick="scrollRowLeft('stationery-scroll')"><i class="fas fa-chevron-left"></i></button>
+          <div class="stationery-scroll-grid" id="stationery-scroll">
+            <!-- Item 1: Linen Hardcover Notebook (ID: 25) -->
+            <div class="aesthetic-product-card" onclick="handleHomeItemClick('25')" title="Linen Hardcover Notebook">
+              <div class="prod-img-box">
+                <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Linen Hardcover Notebook" />
+              </div>
+              <h4>Linen Hardcover Notebook</h4>
+              <p class="item-spec">A5 · Dotted 160 GSM</p>
+              <div class="price-box">
+                <span class="price-current">₹399</span>
+                <span class="price-old">₹499</span>
+              </div>
+            </div>
+            <!-- Item 2: Floral Spiral Notebook (ID: 26) -->
+            <div class="aesthetic-product-card" onclick="handleHomeItemClick('26')" title="Floral Spiral Notebook">
+              <div class="prod-img-box">
+                <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Floral Spiral Notebook" />
+              </div>
+              <h4>Floral Spiral Notebook</h4>
+              <p class="item-spec">A5 · Ruled Gold Spiral</p>
+              <div class="price-box">
+                <span class="price-current">₹299</span>
+                <span class="price-old">₹349</span>
+              </div>
+            </div>
+            <!-- Item 3: Minimal Daily Planner (ID: 27) -->
+            <div class="aesthetic-product-card" onclick="handleHomeItemClick('27')" title="Minimal Daily Planner">
+              <div class="prod-img-box">
+                <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Minimal Daily Planner" />
+              </div>
+              <h4>Minimal Daily Planner</h4>
+              <p class="item-spec">A5 · Undated 6-Month</p>
+              <div class="price-box">
+                <span class="price-current">₹499</span>
+                <span class="price-old">₹599</span>
+              </div>
+            </div>
+            <!-- Item 4: Vintage Sticker Pack (ID: 28) -->
+            <div class="aesthetic-product-card" onclick="handleHomeItemClick('28')" title="Vintage Sticker Pack">
+              <div class="prod-img-box">
+                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Vintage Sticker Pack" />
+              </div>
+              <h4>Vintage Sticker Pack</h4>
+              <p class="item-spec">Set of 46 Washi Die-Cut</p>
+              <div class="price-box">
+                <span class="price-current">₹149</span>
+                <span class="price-old">₹199</span>
+              </div>
+            </div>
+            <!-- Item 5: Pastel Highlighters (ID: 29) -->
+            <div class="aesthetic-product-card" onclick="handleHomeItemClick('29')" title="Pastel Highlighters">
+              <div class="prod-img-box">
+                <img src="https://images.unsplash.com/photo-1585336261026-8f5786372969?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Pastel Highlighters" />
+              </div>
+              <h4>Pastel Highlighters</h4>
+              <p class="item-spec">Set of 5 Earth Tones</p>
+              <div class="price-box">
+                <span class="price-current">₹199</span>
+                <span class="price-old">₹249</span>
+              </div>
+            </div>
+            <!-- Item 6: Gel Pens (0.5mm) (ID: 30) -->
+            <div class="aesthetic-product-card" onclick="handleHomeItemClick('30')" title="Gel Pens (0.5mm)">
+              <div class="prod-img-box">
+                <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Gel Pens 0.5mm" />
+              </div>
+              <h4>Gel Pens (0.5mm)</h4>
+              <p class="item-spec">Set of 5 Velvet Black</p>
+              <div class="price-box">
+                <span class="price-current">₹199</span>
+                <span class="price-old">₹249</span>
+              </div>
+            </div>
+          </div>
+          <button class="row-arrow arrow-right" onclick="scrollRowRight('stationery-scroll')"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </section>
+
+      <!-- 4. OUR STORY BANNER -->
+      <section class="our-story-card">
+        <div class="story-img-side">
+          <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cozy reading corner" />
+        </div>
+        <div class="story-text-side">
+          <span class="story-tag">OUR STORY</span>
+          <h2>For the thinkers, dreamers & lifelong learners.</h2>
+          <p>
+            Book Haven began with a simple belief—objects around us can inspire us to live more mindfully. We curate products that add beauty to your everyday and meaning to your moments.
+          </p>
+          <a href="about.html" class="story-btn">LEARN MORE</a>
+          <div class="story-leaf-motif"><i class="fa-solid fa-leaf"></i></div>
+        </div>
+      </section>
+
+      <!-- 5. WHAT OUR READERS SAY (Testimonials) -->
+      <section class="readers-section">
+        <h2 class="section-title-small center-title">WHAT OUR READERS SAY</h2>
+        <div class="testimonial-cards-grid">
+          <div class="testimonial-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-text">"Beautifully curated and quickly delivered. The packaging felt like a gift in itself!"</p>
+            <div class="t-footer">
+              <span class="t-author">— Ananya P.</span>
+              <i class="fa-regular fa-heart heart-icon"></i>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-text">"My go-to shop for books and stationery. Love the quality and thoughtful touches."</p>
+            <div class="t-footer">
+              <span class="t-author">— Rohan M.</span>
+              <i class="fa-regular fa-heart heart-icon"></i>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-text">"The perfect place to find gifts for book lovers! Highly recommended."</p>
+            <div class="t-footer">
+              <span class="t-author">— Meera S.</span>
+              <i class="fa-regular fa-heart heart-icon"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. STAY INSPIRED NEWSLETTER -->
+      <section class="stay-inspired-bar">
+        <div class="inspired-left">
+          <i class="fa-regular fa-envelope envelope-icon"></i>
+          <div>
+            <span class="inspired-tag">STAY INSPIRED</span>
+            <h3>Get bookish goodness delivered to your inbox.</h3>
+          </div>
+        </div>
+        <div class="inspired-center">
+          <form class="inspired-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+            <input type="email" placeholder="Enter your email address" required />
+            <button type="submit">SUBSCRIBE</button>
+          </form>
+          <span class="inspired-sub">Be the first to know about new arrivals, offers & more.</span>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Redesigned Aesthetic Footer -->
+    <footer class="aesthetic-footer">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand & Socials -->
+        <div class="footer-col brand-col">
+          <div class="logo-box footer-logo">
+            <a href="Home.html" class="logo-link">
+              <i class="fa-solid fa-book-bookmark logo-icon"></i>
+              <span class="logo-text" style="color: #ffffff;">Shivam<span class="logo-accent">Dev</span></span>
+            </a>
+          </div>
+          <p class="footer-desc">
+            Your literary paradise for curated books, handcrafted stationery, and thoughtful gifts that inspire mindful living.
+          </p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Shop Collections -->
+        <div class="footer-col">
+          <h4>Shop Collections</h4>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#featured">Featured</a></li>
-            <li><a href="#categories">Categories</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="index.html">Bestselling Books</a></li>
+            <li><a href="index.html">Notebooks & Planners</a></li>
+            <li><a href="index.html">Art & Stationery</a></li>
+            <li><a href="index.html">Mugs & Drinkware</a></li>
+            <li><a href="index.html">Bookish Gifts</a></li>
+            <li><a href="index.html">Sale & Clearance</a></li>
           </ul>
         </div>
-        <div class="footer-section">
-          <h3>Contact Us</h3>
-          <p>Email: info@bookhaven.com</p>
-          <p>Phone: (555) 123-4567</p>
+
+        <!-- Col 3: Customer Care -->
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="about.html">About Our Story</a></li>
+            <li><a href="feedback.html">Share Feedback</a></li>
+            <li><a href="bag.html">Shipping & Returns</a></li>
+            <li><a href="wishlist.html">My Wishlist</a></li>
+            <li><a href="login.html">My Account</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Hours -->
+        <div class="footer-col contact-col">
+          <h4>Get in Touch</h4>
+          <p class="contact-info"><i class="fa-regular fa-envelope"></i> info@shivamdev.com</p>
+          <p class="contact-info"><i class="fa-solid fa-phone"></i> (555) 123-4567</p>
+          <p class="contact-info"><i class="fa-solid fa-location-dot"></i> 123 Haven Street, Suite 400</p>
+          <span class="hours-tag">Mon - Sat: 9:00 AM - 8:00 PM</span>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Book Haven. All rights reserved.</p>
+
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 <strong>ShivamDev Book Haven</strong>. All rights reserved.</p>
+        <div class="payment-badges">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-brands fa-apple-pay"></i>
+          <i class="fa-brands fa-google-pay"></i>
+        </div>
       </div>
     </footer>
 
-    <script src="Home.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="data.js"></script>
+    <script src="Home.js"></script>
     <script src="auth.js"></script>
   </body>
 </html>

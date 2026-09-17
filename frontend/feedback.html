@@ -14,10 +14,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   </head>
   <body>
+    <!-- Navbar Section (Master) -->
     <div id="navbar">
       <input type="checkbox" id="check" name="" value="" />
       <label for="check" id="checkbtn"><i class="fas fa-bars"></i> </label>
-      <div class="logo-box">LOGO</div>
+      <div class="logo-box">
+        <a href="Home.html" class="logo-link">
+          <i class="fa-solid fa-book-bookmark logo-icon"></i>
+          <span class="logo-text">Shivam<span class="logo-accent">Dev</span></span>
+        </a>
+      </div>
+
+      <div class="header-search-pill">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" placeholder="Search..." id="hero-search-input" />
+        <div class="category-divider"></div>
+        <select class="category-select">
+          <option value="all">All categories</option>
+          <option value="fiction">Fiction</option>
+          <option value="travel">Travel</option>
+          <option value="nonfiction">Non-Fiction</option>
+          <option value="education">Education</option>
+        </select>
+      </div>
+
       <ul>
         <li class="item"><a href="Home.html">Home</a></li>
         <li class="item"><a href="index.html">Section</a></li>
@@ -25,9 +45,16 @@
         <li class="item"><a href="feedback.html">Feedback</a></li>
         <li class="item"><a href="about.html">About</a></li>
       </ul>
+
       <div class="add-to-box">
+        <a href="wishlist.html" class="my-basket-btn" title="Wishlist" aria-label="Wishlist">
+          <i class="fa-solid fa-heart"></i>
+        </a>
+        <a href="bag.html" class="my-basket-btn" title="My Basket" aria-label="My Basket">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
         <div class="dropdown">
-          <button onclick="toggleDropdown()" class="dropbtn">👤</button>
+          <button onclick="toggleDropdown()" class="dropbtn" aria-label="Account Menu"><i class="fa-regular fa-user"></i></button>
           <div id="myDropdown" class="dropdown-content">
             <li class="item auth-item">
               <a href="login.html" id="login-link">Login</a>
@@ -192,30 +219,72 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Book Haven</h3>
-          <p>Your literary paradise for all book lovers.</p>
+    <!-- Master Aesthetic Footer -->
+    <footer class="aesthetic-footer">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand & Socials -->
+        <div class="footer-col brand-col">
+          <div class="logo-box footer-logo">
+            <a href="Home.html" class="logo-link">
+              <i class="fa-solid fa-book-bookmark logo-icon"></i>
+              <span class="logo-text" style="color: #ffffff;">Shivam<span class="logo-accent">Dev</span></span>
+            </a>
+          </div>
+          <p class="footer-desc">
+            Your literary paradise for curated books, handcrafted stationery, and thoughtful gifts that inspire mindful living.
+          </p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
         </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
+
+        <!-- Col 2: Shop Collections -->
+        <div class="footer-col">
+          <h4>Shop Collections</h4>
           <ul>
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="#featured">Featured</a></li>
-            <li><a href="#categories">Categories</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="index.html">Bestselling Books</a></li>
+            <li><a href="index.html">Notebooks & Planners</a></li>
+            <li><a href="index.html">Art & Stationery</a></li>
+            <li><a href="index.html">Mugs & Drinkware</a></li>
+            <li><a href="index.html">Bookish Gifts</a></li>
+            <li><a href="index.html">Sale & Clearance</a></li>
           </ul>
         </div>
-        <div class="footer-section">
-          <h3>Contact Us</h3>
-          <p>Email: info@bookhaven.com</p>
-          <p>Phone: (555) 123-4567</p>
+
+        <!-- Col 3: Customer Care -->
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="about.html">About Our Story</a></li>
+            <li><a href="feedback.html">Share Feedback</a></li>
+            <li><a href="bag.html">Shipping & Returns</a></li>
+            <li><a href="wishlist.html">My Wishlist</a></li>
+            <li><a href="login.html">My Account</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Hours -->
+        <div class="footer-col contact-col">
+          <h4>Get in Touch</h4>
+          <p class="contact-info"><i class="fa-regular fa-envelope"></i> info@shivamdev.com</p>
+          <p class="contact-info"><i class="fa-solid fa-phone"></i> (555) 123-4567</p>
+          <p class="contact-info"><i class="fa-solid fa-location-dot"></i> 123 Haven Street, Suite 400</p>
+          <span class="hours-tag">Mon - Sat: 9:00 AM - 8:00 PM</span>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Book Haven. All rights reserved.</p>
+
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 <strong>ShivamDev Book Haven</strong>. All rights reserved.</p>
+        <div class="payment-badges">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-brands fa-apple-pay"></i>
+          <i class="fa-brands fa-google-pay"></i>
+        </div>
       </div>
     </footer>
 

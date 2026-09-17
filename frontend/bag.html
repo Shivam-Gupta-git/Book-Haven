@@ -3,18 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart - Book Haven</title>
+  <title>Shopping Bag - Book Haven</title>
   <link rel="stylesheet" href="bag.css">
   <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-/>
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
+  <!-- Navbar (matching Home.html) -->
   <div id="navbar">
     <input type="checkbox" id="check" name="" value="" />
     <label for="check" id="checkbtn"><i class="fas fa-bars"></i> </label>
-    <div class="logo-box">LOGO</div>
+    <div class="logo-box">
+      <a href="Home.html" class="logo-link">
+        <i class="fa-solid fa-book-bookmark logo-icon"></i>
+        <span class="logo-text">Shivam<span class="logo-accent">Dev</span></span>
+      </a>
+    </div>
+
+    <div class="header-search-pill">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" placeholder="Search..." id="hero-search-input" />
+      <div class="category-divider"></div>
+      <select class="category-select">
+        <option value="all">All categories</option>
+        <option value="fiction">Fiction</option>
+        <option value="travel">Travel</option>
+        <option value="nonfiction">Non-Fiction</option>
+        <option value="education">Education</option>
+      </select>
+    </div>
+
     <ul>
       <li class="item"><a href="Home.html">Home</a></li>
       <li class="item"><a href="index.html">Section</a></li>
@@ -24,22 +45,62 @@
     </ul>
 
     <div class="add-to-box">
-      <div class="wishlist">
-        <a href="wishlist.html"><i class="fa-solid fa-heart"></i></a>
-        <div class="wishlist-count">0</div>
-      </div>
-      <div class="bag">
-        <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
-        <div class="bag-count">0</div>
+      <a href="wishlist.html" class="my-basket-btn" title="Wishlist" aria-label="Wishlist">
+        <i class="fa-solid fa-heart"></i>
+      </a>
+      <a href="bag.html" class="my-basket-btn" title="My Basket" aria-label="My Basket">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </a>
+      <div class="dropdown">
+        <button onclick="toggleDropdown()" class="dropbtn" aria-label="Account Menu"><i class="fa-regular fa-user"></i></button>
+        <div id="myDropdown" class="dropdown-content">
+          <li class="item auth-item">
+            <a href="login.html" id="login-link">Login</a>
+          </li>
+          <li class="item auth-item">
+            <a href="signup.html" id="signup-link">Sign Up</a>
+          </li>
+          <li class="item auth-item" style="display: none">
+            <a href="#" id="logout-link" onclick="logout()">Logout</a>
+          </li>
+          <li class="item auth-item" style="display: none">
+            <span id="user-info"></span>
+          </li>
+        </div>
       </div>
     </div>
-  </div> 
+  </div>
 
-  <div class="main-container">
-    <div class="bags-container">
-      <!-- Checkbox will be added dynamically in bag.js -->
+  <!-- Hero Banner -->
+  <section class="bag-hero-banner">
+    <div class="hero-banner-content">
+      <i class="fa-solid fa-bag-shopping hero-bag-icon"></i>
+      <h1>Shopping Bag</h1>
+      <p>Review your items and proceed to checkout</p>
     </div>
-    <div class="bags-info-container"></div>
+  </section>
+
+  <!-- Main Cart Layout -->
+  <div class="bag-page-wrapper">
+    <div class="main-container">
+      <!-- Left: Cart Items -->
+      <div class="bags-column">
+        <div class="bag-section-header">
+          <h2 class="bag-section-title"><i class="fa-solid fa-cart-shopping"></i> YOUR ITEMS</h2>
+          <a href="index.html" class="continue-link"><i class="fa-solid fa-arrow-left"></i> Continue Shopping</a>
+        </div>
+        <div class="bags-container">
+          <!-- Bag items rendered here by bag.js -->
+        </div>
+      </div>
+
+      <!-- Right: Order Summary -->
+      <div class="bags-info-container">
+        <div class="bag-summary">
+          <!-- Summary rendered here by bag.js -->
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Address Form Modal -->
@@ -77,33 +138,70 @@
     </div>
   </div>
 
-      <!-- footer -->
-      <footer>
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>Book Haven</h3>
-            <p>Your literary paradise for all book lovers.</p>
-          </div>
-          <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#featured">Featured</a></li>
-              <li><a href="#categories">Categories</a></li>
-              <li><a href="#about">About</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h3>Contact Us</h3>
-            <p>Email: info@bookhaven.com</p>
-            <p>Phone: (555) 123-4567</p>
-          </div>
+  <!-- Footer (matching Home.html) -->
+  <footer class="aesthetic-footer">
+    <div class="footer-top-grid">
+      <div class="footer-col brand-col">
+        <div class="logo-box footer-logo">
+          <a href="Home.html" class="logo-link">
+            <i class="fa-solid fa-book-bookmark logo-icon"></i>
+            <span class="logo-text" style="color: #ffffff;">Shivam<span class="logo-accent">Dev</span></span>
+          </a>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2024 Book Haven. All rights reserved.</p>
+        <p class="footer-desc">
+          Your literary paradise for curated books, handcrafted stationery, and thoughtful gifts that inspire mindful living.
+        </p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
-      </footer>
-</div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Shop Collections</h4>
+        <ul>
+          <li><a href="index.html">Bestselling Books</a></li>
+          <li><a href="index.html">Notebooks & Planners</a></li>
+          <li><a href="index.html">Art & Stationery</a></li>
+          <li><a href="index.html">Mugs & Drinkware</a></li>
+          <li><a href="index.html">Bookish Gifts</a></li>
+          <li><a href="index.html">Sale & Clearance</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="about.html">About Our Story</a></li>
+          <li><a href="feedback.html">Share Feedback</a></li>
+          <li><a href="bag.html">Shipping & Returns</a></li>
+          <li><a href="wishlist.html">My Wishlist</a></li>
+          <li><a href="login.html">My Account</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col contact-col">
+        <h4>Get in Touch</h4>
+        <p class="contact-info"><i class="fa-regular fa-envelope"></i> info@shivamdev.com</p>
+        <p class="contact-info"><i class="fa-solid fa-phone"></i> (555) 123-4567</p>
+        <p class="contact-info"><i class="fa-solid fa-location-dot"></i> 123 Haven Street, Suite 400</p>
+        <span class="hours-tag">Mon - Sat: 9:00 AM - 8:00 PM</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <p>&copy; 2026 <strong>ShivamDev Book Haven</strong>. All rights reserved.</p>
+      <div class="payment-badges">
+        <i class="fa-brands fa-cc-visa"></i>
+        <i class="fa-brands fa-cc-mastercard"></i>
+        <i class="fa-brands fa-apple-pay"></i>
+        <i class="fa-brands fa-google-pay"></i>
+      </div>
+    </div>
+  </footer>
 
   <script src="data.js"></script>
   <script src="index.js"></script>

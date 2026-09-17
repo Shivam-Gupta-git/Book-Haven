@@ -1,7 +1,22 @@
+:root {
+  --color-umber: #8C6046;
+  --color-parchment: #F1E4CC;
+  --color-parchment-light: #FAF5ED;
+  --color-parchment-subtle: #F6EDE0;
+  --color-rosewood: #96584E;
+  --color-rosewood-dark: #7D433A;
+  --color-sage: #798165;
+  --color-sage-dark: #626A50;
+  --color-sage-light: #EBF0E6;
+  --color-ink: #2C2725;
+  --color-ink-light: #423C39;
+  --color-border: #E5D7C0;
+}
+
 /* Feedback Hero Section */
 .feedback-hero {
   height: 40vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+  background: linear-gradient(rgba(44, 39, 37, 0.7), rgba(44, 39, 37, 0.7)),
     url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80");
   background-size: cover;
   background-position: center;
@@ -13,20 +28,23 @@
 }
 
 .feedback-hero-content h1 {
+  font-family: 'Georgia', serif;
   font-size: 3.5rem;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
 }
 
 .feedback-hero-content p {
-  font-size: 1.5rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 1.3rem;
+  color: var(--color-parchment);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Rating Section */
 .rating-section {
   padding: 4rem 5%;
-  background: #f8f9fa;
+  background: var(--color-parchment-subtle);
   text-align: center;
 }
 
@@ -36,8 +54,9 @@
 }
 
 .rating-container h2 {
+  font-family: 'Georgia', serif;
   font-size: 2rem;
-  color: #2c3e50;
+  color: var(--color-ink);
   margin-bottom: 2rem;
 }
 
@@ -50,26 +69,27 @@
 
 .star-rating i {
   font-size: 2.5rem;
-  color: #ddd;
+  color: var(--color-border);
   cursor: pointer;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .star-rating i:hover,
 .star-rating i.active {
-  color: #f1c40f;
-  transform: scale(1.1);
+  color: var(--color-rosewood);
+  transform: scale(1.15);
 }
 
 .rating-text {
-  color: #666;
+  color: var(--color-sage-dark);
   font-size: 1.1rem;
+  font-weight: 600;
 }
 
 /* Feedback Form Section */
 .feedback-form-section {
   padding: 4rem 5%;
-  background: white;
+  background: var(--color-parchment-light);
 }
 
 .form-container {
@@ -79,20 +99,23 @@
 
 .form-content {
   background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 15px rgba(44, 39, 37, 0.05);
 }
 
 .form-content h2 {
-  font-size: 2.5rem;
-  color: #2c3e50;
-  margin-bottom: 1rem;
+  font-family: 'Georgia', serif;
+  font-size: 2.2rem;
+  color: var(--color-ink);
+  margin-bottom: 0.75rem;
 }
 
 .form-content p {
-  color: #666;
+  color: var(--color-ink-light);
   margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
 .feedback-form {
@@ -108,17 +131,20 @@
 }
 
 .form-group label {
-  color: #2c3e50;
-  font-weight: 500;
+  color: var(--color-sage-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #ffffff;
+  color: var(--color-ink);
   transition: border-color 0.3s ease;
 }
 
@@ -126,7 +152,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #3498db;
+  border-color: var(--color-umber);
+  box-shadow: 0 0 0 3px rgba(140, 96, 70, 0.1);
 }
 
 .checkbox-label {
@@ -134,38 +161,44 @@
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
+  color: var(--color-ink-light);
 }
 
 .checkbox-label input[type="checkbox"] {
   width: 1.2rem;
   height: 1.2rem;
+  accent-color: var(--color-umber);
 }
 
 .submit-btn {
-  background: #3498db;
+  background: var(--color-umber);
   color: white;
   padding: 1rem 2rem;
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .submit-btn:hover {
-  background: #2980b9;
+  background: #734C35;
+  transform: translateY(-2px);
 }
 
 /* Testimonials Section */
 .testimonials-section {
   padding: 4rem 5%;
-  background: #f8f9fa;
+  background: var(--color-parchment-subtle);
 }
 
 .testimonials-section h2 {
+  font-family: 'Georgia', serif;
   text-align: center;
   font-size: 2.5rem;
-  color: #2c3e50;
+  color: var(--color-ink);
   margin-bottom: 3rem;
 }
 
@@ -180,22 +213,25 @@
 .testimonial-card {
   background: white;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 15px rgba(44, 39, 37, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .testimonial-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(44, 39, 37, 0.1);
 }
 
 .testimonial-rating {
-  color: #f1c40f;
+  color: var(--color-rosewood);
   margin-bottom: 1rem;
+  font-size: 1.1rem;
 }
 
 .testimonial-text {
-  color: #666;
+  color: var(--color-ink-light);
   font-style: italic;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -212,27 +248,30 @@
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  border: 1px solid var(--color-border);
 }
 
 .author-info h4 {
-  color: #2c3e50;
+  font-family: 'Georgia', serif;
+  color: var(--color-ink);
   margin: 0;
 }
 
 .author-info p {
-  color: #666;
+  color: var(--color-sage-dark);
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  font-weight: 600;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .feedback-hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
   }
 
   .feedback-hero-content p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .star-rating i {
@@ -241,6 +280,40 @@
 
   .testimonials-container {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-hero {
+    height: 32vh;
+  }
+
+  .feedback-hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .feedback-hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .rating-section, .feedback-form-section, .testimonials-section {
+    padding: 2.5rem 4%;
+  }
+
+  .form-content {
+    padding: 1.5rem;
+  }
+
+  .form-content h2, .rating-container h2, .testimonials-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .star-rating {
+    gap: 0.5rem;
+  }
+
+  .star-rating i {
+    font-size: 1.75rem;
   }
 }
 
@@ -262,14 +335,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--color-parchment-light);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3498db;
+  background: var(--color-umber);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2980b9;
+  background: #734C35;
 }

@@ -78,11 +78,11 @@ function toggleDropdown() {
 
 // Close dropdown if user clicks outside
 window.onclick = function (event) {
-  if (!event.target.matches(".dropbtn")) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
+  if (!event.target.matches(".dropbtn") && !event.target.closest(".dropbtn")) {
+    const dropdowns = document.getElementsByClassName("dropdown-content");
     for (let i = 0; i < dropdowns.length; i++) {
       let openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
+      if (openDropdown && openDropdown.classList.contains("show")) {
         openDropdown.classList.remove("show");
       }
     }

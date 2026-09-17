@@ -798,4 +798,178 @@ const items = [
     }
 
   },
-]
+  {
+    id: '25',
+    category: 'Notebooks',
+    item_image1: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    item_image2: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    item_image3: 'https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    rating: {
+      stars: 4.8,
+      noOfReviews: 320,
+    },
+    companyName: 'Haven Papercraft',
+    itemName: 'Linen Hardcover Notebook',
+    itemNameLong: 'Linen Hardcover Journal Notebook - A5 Dotted 160 GSM Bleedproof Pages for Journaling and Planning',
+    price: {
+      currentPrise: 399,
+      originalPrise: 499,
+      discount: 20
+    },
+    productDetels: {
+      Author: 'Haven Studio',
+      Highlights: 'Binding: Hardcover Linen | Pages: 192 Dotted | Paper: 160 GSM Ivory Archival | Ribbon Bookmark & Back Pocket',
+      Seller: 'BookHaven Official',
+      Width: '14.8 cm',
+      Height: '21.0 cm',
+      Depth: '1.8 cm',
+      Weight: '0.42 kg',
+      Description: 'Crafted with premium woven natural linen and ultra-thick 160 GSM acid-free ivory pages that prevent ghosting and bleed-through from fountain pens and markers. Features lay-flat 180-degree binding.'
+    }
+  },
+  {
+    id: '26',
+    category: 'Notebooks',
+    item_image1: 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    item_image2: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    item_image3: 'https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    rating: {
+      stars: 4.7,
+      noOfReviews: 215,
+    },
+    companyName: 'Haven Papercraft',
+    itemName: 'Floral Spiral Notebook',
+    itemNameLong: 'Botanical Floral Spiral Bound Notebook - A5 Ruled Gold Twin Wire (160 Pages)',
+    price: {
+      currentPrise: 299,
+      originalPrise: 349,
+      discount: 14
+    },
+    productDetels: {
+      Author: 'Botanical Living',
+      Highlights: 'Binding: Twin-wire Gold Spiral | Format: A5 Ruled | Paper: 120 GSM Smooth White | Tear-away Perforations',
+      Seller: 'BookHaven Official',
+      Width: '15.0 cm',
+      Height: '21.0 cm',
+      Depth: '1.4 cm',
+      Weight: '0.35 kg',
+      Description: 'A gorgeous botanical illustrated spiral notebook with sturdy gold double-loop binding that allows effortless 360-degree rotation. Ideal for daily notes, study sessions, and creative writing.'
+    }
+  },
+  {
+    id: '27',
+    category: 'Stationery',
+    item_image1: 'https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    item_image2: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    item_image3: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    rating: {
+      stars: 4.9,
+      noOfReviews: 540,
+    },
+    companyName: 'Haven Papercraft',
+    itemName: 'Minimal Daily Planner',
+    itemNameLong: 'Minimalist Undated Daily Productivity Planner - A5 Structured Layout with Habit Tracker & Time Blocking',
+    price: {
+      currentPrise: 499,
+      originalPrise: 599,
+      discount: 17
+    },
+    productDetels: {
+      Author: 'Haven Studio',
+      Highlights: 'Format: Undated 6-Month Daily & Weekly | Paper: 140 GSM Anti-Glare | Vegan Leather Cover with Elastic Closure',
+      Seller: 'BookHaven Official',
+      Width: '14.8 cm',
+      Height: '21.0 cm',
+      Depth: '2.0 cm',
+      Weight: '0.48 kg',
+      Description: 'Achieve work-life clarity with this undated productivity planner. Features dedicated sections for top 3 priorities, schedule time blocks, gratitude logs, and habit streaks.'
+    }
+  },
+  {
+    id: '28',
+    category: 'Stationery',
+    item_image1: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    item_image2: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    item_image3: 'https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    rating: {
+      stars: 4.6,
+      noOfReviews: 180,
+    },
+    companyName: 'Vintage Ephemera',
+    itemName: 'Vintage Sticker Pack',
+    itemNameLong: 'Vintage Aesthetic Botanical & Literary Washi Sticker Pack (Set of 46 Assorted Die-Cut Pieces)',
+    price: {
+      currentPrise: 149,
+      originalPrise: 199,
+      discount: 25
+    },
+    productDetels: {
+      Author: 'Vintage Ephemera',
+      Highlights: 'Quantity: 46 Unique Adhesive Stickers | Material: Matte Translucent Washi Paper | Waterproof & Residue-Free',
+      Seller: 'BookHaven Official',
+      Width: '10.0 cm',
+      Height: '14.0 cm',
+      Depth: '0.5 cm',
+      Weight: '0.08 kg',
+      Description: 'Charming vintage-themed stickers featuring dried florals, antique parchment fragments, postage stamps, and literary quotes. Perfect for scrapbooking, bullet journaling, and laptop decoration.'
+    }
+  },
+  {
+    id: '29',
+    category: 'Stationery',
+    item_image1: 'https://images.unsplash.com/photo-1585336261026-8f5786372969?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    item_image2: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    item_image3: 'https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    rating: {
+      stars: 4.7,
+      noOfReviews: 410,
+    },
+    companyName: 'Artisan Ink',
+    itemName: 'Pastel Highlighters',
+    itemNameLong: 'Soft Aesthetic Chisel-Tip Pastel Highlighters - Set of 5 Muted Vintage Earth Tone Markers',
+    price: {
+      currentPrise: 199,
+      originalPrise: 249,
+      discount: 20
+    },
+    productDetels: {
+      Author: 'Artisan Ink',
+      Highlights: 'Set of 5 Warm Pastel Shades | Dual Chisel & Fine Tip | Quick-Dry Smear-Proof Water-Based Ink',
+      Seller: 'BookHaven Official',
+      Width: '12.0 cm',
+      Height: '15.0 cm',
+      Depth: '1.5 cm',
+      Weight: '0.12 kg',
+      Description: 'Gentle on the eyes with warm, non-neon vintage colors (dusty rose, sage olive, warm beige, soft mocha, and slate). Designed specifically not to bleed through thin book Bible and novel pages.'
+    }
+  },
+  {
+    id: '30',
+    category: 'Stationery',
+    item_image1: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    item_image2: 'https://images.unsplash.com/photo-1585336261026-8f5786372969?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    item_image3: 'https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    rating: {
+      stars: 4.8,
+      noOfReviews: 620,
+    },
+    companyName: 'Artisan Ink',
+    itemName: 'Gel Pens (0.5mm)',
+    itemNameLong: 'Ultra-Fine 0.5mm Smooth Black Gel Ink Rollerball Pens - Set of 5 Ergonomic Matte Barrel Pens',
+    price: {
+      currentPrise: 199,
+      originalPrise: 249,
+      discount: 20
+    },
+    productDetels: {
+      Author: 'Artisan Ink',
+      Highlights: 'Set of 5 Pens | 0.5mm Japanese Precision Nib | Velvet Touch Soft-Grip Casing | Fast Drying Dark Ink',
+      Seller: 'BookHaven Official',
+      Width: '10.0 cm',
+      Height: '16.0 cm',
+      Depth: '1.2 cm',
+      Weight: '0.10 kg',
+      Description: 'Features smooth-glide micro-rollerball technology with deeply pigmented fade-resistant black ink that dries in under a second for a skip-free, smudge-free writing experience.'
+    }
+  }
+];

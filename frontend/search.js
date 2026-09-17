@@ -41,9 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
         top: 100%;
         left: 0;
         width: 100%;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background: #FAF5ED;
+        border: 1px solid #F1E4CC;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(44, 39, 37, 0.2);
         max-height: 300px;
         overflow-y: auto;
         display: none;
@@ -71,13 +72,14 @@ document.addEventListener("DOMContentLoaded", function () {
         .map(
           (product) => `
                 <div class="search-result-item" style="
-                    padding: 10px;
-                    border-bottom: 1px solid #eee;
+                    padding: 10px 14px;
+                    border-bottom: 1px solid #F1E4CC;
                     cursor: pointer;
                     display: flex;
                     align-items: center;
-                    gap: 10px;
-                ">
+                    gap: 12px;
+                    transition: background 0.2s ease;
+                " onmouseover="this.style.background='#F1E4CC'" onmouseout="this.style.background='transparent'">
                     <img src="${product.image}" alt="${product.name}" style="
                         width: 40px;
                         height: 40px;
@@ -86,8 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div>
                         <h4 style="
                             margin: 0;
-                            color: #333;
+                            color: #2C2725;
                             font-size: 14px;
+                            font-family: 'Cinzel', serif;
                         ">${product.name}</h4>
                     </div>
                 </div>
@@ -110,9 +113,10 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       searchResults.innerHTML = `
                 <div style="
-                    padding: 10px;
+                    padding: 12px;
                     text-align: center;
-                    color: #666;
+                    color: #798165;
+                    font-size: 13px;
                 ">
                     No products found
                 </div>

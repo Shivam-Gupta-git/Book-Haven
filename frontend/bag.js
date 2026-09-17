@@ -1,39 +1,65 @@
-let bagItemObject;
-let selectedItems = new Set(); // Track selected items
+// bag.js - Shopping Bag & Cart Checkout Logic
 
-onLoaded();
+let bagItemObject = [];
+let selectedItems = new Set();
+let bagItems = [];
 
-function onLoaded() {
+function initBagPage() {
   loadBagItemObject();
   displayBagItems();
   displayBagSummery();
+  if (typeof displayBagIcon === "function") {
+    displayBagIcon();
+  }
 }
 
 function loadBagItemObject() {
-  bagItemObject = bagItems.map((itemId) => {
-    for (let i = 0; i < items.length; i++) {
-      if (itemId == items[i].id) {
-        selectedItems.add(itemId); // Add all items to selected items initially
-        return items[i];
+  let bagItemStr = localStorage.getItem("bagItems");
+  bagItems = bagItemStr ? JSON.parse(bagItemStr) : [];
+  if (typeof items !== "undefined" && Array.isArray(items)) {
+    bagItemObject = bagItems.map((itemId) => {
+      let found = items.find((i) => i.id == itemId);
+      if (found) {
+        selectedItems.add(itemId);
+        return found;
       }
-    }
-  });
-  // console.log(bagItemObject)
+      return null;
+    }).filter(Boolean);
+  } else {
+    bagItemObject = [];
+  }
 }
 
 function displayBagItems() {
   let bagItemContainerElement = document.querySelector(".bags-container");
+  if (!bagItemContainerElement) return;
 
-  if (!bagItemContainerElement) {
-    return;
-  }
   let innerHTML = "";
-  bagItemObject.forEach((bagItems) => {
-    innerHTML += generateItemHTML(bagItems);
-  });
+  if (bagItemObject && bagItemObject.length > 0) {
+    bagItemObject.forEach((item) => {
+      innerHTML += generateBagItemHTML(item);
+    });
+  } else {
+    innerHTML = `<div style='padding: 4rem 2rem; text-align: center;'>
+      <i class='fa-regular fa-bag-shopping' style='font-size: 3.5rem; color: #e8decb; margin-bottom: 1rem; display: block;'></i>
+      <h3 style='font-family: Georgia, serif; font-size: 1.4rem; color: #4a3e3d; margin-bottom: 0.5rem;'>Your bag is empty</h3>
+      <p style='font-size: 0.95rem; color: #8c786a; margin-bottom: 1.5rem;'>Start exploring and add books to your bag!</p>
+      <a href='index.html' style='display: inline-block; padding: 10px 28px; background: #5c4b43; color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border-radius: 8px;'>Browse Books</a>
+    </div>`;
+  }
   bagItemContainerElement.innerHTML = innerHTML;
 
-  // Add event listeners to checkboxes
+  // GSAP entrance animation for cart cards
+  if (typeof gsap !== 'undefined' && bagItemObject && bagItemObject.length > 0) {
+    gsap.from('.bag-container', {
+      y: 25,
+      opacity: 0,
+      duration: 0.5,
+      stagger: 0.08,
+      ease: 'power2.out'
+    });
+  }
+
   document.querySelectorAll(".item-checkbox").forEach((checkbox) => {
     checkbox.addEventListener("change", function () {
       const itemId = this.getAttribute("data-item-id");
@@ -47,198 +73,134 @@ function displayBagItems() {
   });
 }
 
-function generateItemHTML(item) {
+function generateBagItemHTML(item) {
+  let price = item.price || { currentPrise: 0, originalPrise: 0, discount: 0 };
+  let isChecked = selectedItems.has(item.id) ? "checked" : "";
+
   return `
-  <div class="bag-container">
-    <div class="item-checkbox-container">
-      <input type="checkbox" class="item-checkbox" data-item-id="${item.id}" checked>
+    <div class="bag-container">
+      <div class="checkbox-container">
+        <input type="checkbox" class="item-checkbox" data-item-id="${item.id}" ${isChecked}>
+      </div>
+      <div class="image-container">
+        <img src="${item.item_image1}" alt="${item.itemName}">
+        <button class="cancle-button" onClick="removeFromBag('${item.id}')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="info-contaner">
+        <div class="company-name">${item.companyName || ''}</div>
+        <div class="item-name">${item.itemName || ''}</div>
+        <div class="prise">
+          <span class="current-prise">₹${price.currentPrise}</span>
+          ${price.originalPrise > price.currentPrise ? `<span class="original-prise">₹${price.originalPrise}</span>` : ''}
+          ${price.discount ? `<span class="discount">(${price.discount}% OFF)</span>` : ''}
+        </div>
+      </div>
     </div>
-    <div class="image-container">
-      <a href="#"><img src="${item.item_image1}" alt="image-Error"/></a>
-    </div>
-    <div class="info-contaner">
-      <div class="company-name">${item.companyName}</div>
-      <div class="item-name">${item.itemName}</div>
-      <div class="item-size">
-
-      </div>
-      <div class="prise">
-        <span class="current-prise">₹${item.price.currentPrise}</span>
-        <span class="original-prise">₹${item.price.originalPrise}</span>
-        <span class="discount">(${item.price.discount} % OFF)</span>
-      </div>
-      <div class="item-Qty">
-
-
-      </div>
-    </div> 
-    <button class="cancle-button" onClick="removeFromBag(${item.id})"><i class="fa-solid fa-xmark"></i></button>
-  </div>
   `;
 }
 
 function removeFromBag(itemId) {
-  bagItems = bagItems.filter((bagItemId) => bagItemId != itemId);
-  selectedItems.delete(itemId); // Remove from selected items
+  let bagItemStr = localStorage.getItem("bagItems");
+  bagItems = bagItemStr ? JSON.parse(bagItemStr) : [];
+  bagItems = bagItems.filter((id) => id != itemId);
   localStorage.setItem("bagItems", JSON.stringify(bagItems));
-  loadBagItemObject();
-  displayBagIcon();
-  displayBagItems();
-  displayBagSummery();
+  selectedItems.delete(itemId);
+  initBagPage();
 }
 
 function displayBagSummery() {
-  // Only count selected items
+  let bagSummeryElement = document.querySelector(".bag-summary");
+  if (!bagSummeryElement) return;
+
   let totalItem = selectedItems.size;
   let totalMRP = 0;
   let totalDiscount = 0;
-  let convenienceFee = 50;
-  let finalPayment = 0;
 
-  // Only calculate prices for selected items
-  bagItemObject.forEach((bagItem) => {
-    if (selectedItems.has(bagItem.id)) {
-      totalMRP += bagItem.price.originalPrise;
-      totalDiscount += bagItem.price.originalPrise - bagItem.price.currentPrise;
-    }
+  let selectedItemsArray = bagItemObject.filter((item) => selectedItems.has(item.id));
+  selectedItemsArray.forEach((bagItem) => {
+    let price = bagItem.price || { currentPrise: 0, originalPrise: 0 };
+    totalMRP += price.originalPrise || price.currentPrise;
+    totalDiscount += (price.originalPrise || price.currentPrise) - price.currentPrise;
   });
 
-  finalPayment = totalMRP - totalDiscount + convenienceFee;
+  let finalPayment = totalMRP - totalDiscount;
 
-  let bagsInfoContainer = document.querySelector(".bags-info-container");
-  if (!bagsInfoContainer) {
-    return;
-  }
-  bagsInfoContainer.innerHTML = `
-
-  <div class="apply-box">
-  <div class="coupons">COUPONS</div>
-  </div>
-  <div class="apply-coupons-box">
-  <span><i class="fa-solid fa-tag"></i>
-  <span class="apply-coupons">Apply Coupons</span>
-  </span>
-  <span class="apply">APPLY</span>
-  </div>
-  <div class="prise-detail">
-  <span class="prise-details">PRICE DETAILS</span><span class="items">(${totalItem} <span>Items</span>)</span>
-</div>
-
-<div class="prise-container">
-  <div class="total-mrp-box">
-    <span class="total-prise">Total MRP</span><span class="original-Prise">₹${totalMRP}</span>
-  </div>
-  <div class="box-discount">
-      <span class="discount-on-mrp">Discount ON MRP</span>
-        <span class="discount-prise"> -₹${totalDiscount}</span>
-  </div>
-  <div class="convenience-fee-box">
-    <span class="convenience-fee">Convenience Fee</span>
-    <span class="convenience-fee-prise">₹${convenienceFee}</span>
-  </div>
-  <div class="coupon-box">
-  <span class="coupon-discount">Coupon Discount</span>
-  <span class="apply-coupon">Apply Coupon</span>
-  </div>
-  <div class="total-amount-box">
-    <span class="total-amount">Total Amount</span>
-    <span class="total-amount-prise">₹${finalPayment}</span>
-  </div>
-</div>
-<button class="order-now" onClick="placeOrder()" ${
-    totalItem === 0 ? "disabled" : ""
-  }>PLACE ORDER</button>
+  bagSummeryElement.innerHTML = `
+    <div class="bag-details-container">
+      <div class="price-header">PRICE DETAILS (${totalItem} Items)</div>
+      <div class="price-item">
+        <span class="price-item-tag">Total MRP</span>
+        <span class="price-item-value">₹${totalMRP}</span>
+      </div>
+      <div class="price-item">
+        <span class="price-item-tag">Discount on MRP</span>
+        <span class="price-item-value priceDetail-base-discount">-₹${totalDiscount}</span>
+      </div>
+      <div class="price-item">
+        <span class="price-item-tag">Convenience Fee</span>
+        <span class="price-item-value">FREE</span>
+      </div>
+      <hr>
+      <div class="price-footer">
+        <span class="price-item-tag">Total Amount</span>
+        <span class="price-item-value">₹${finalPayment}</span>
+      </div>
+    </div>
+    <button class="btn-place-order" onClick="placeOrder()" ${totalItem === 0 ? "disabled" : ""}>PLACE ORDER</button>
   `;
 }
 
 function placeOrder() {
-  // Check if any items are selected
   if (selectedItems.size === 0) {
     alert("Please select at least one item to place order");
     return;
   }
-
   const modal = document.getElementById("addressModal");
-  modal.style.display = "block";
+  if (modal) modal.style.display = "block";
 }
 
-// Handle address form submission
-document.getElementById("addressForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+const addressFormElement = document.getElementById("addressForm");
+if (addressFormElement) {
+  addressFormElement.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  // Get form values
-  const fullName = document.getElementById("fullName").value;
-  const phone = document.getElementById("phone").value;
-  const address = document.getElementById("address").value;
-  const city = document.getElementById("city").value;
-  const state = document.getElementById("state").value;
-  const pincode = document.getElementById("pincode").value;
+    const fullName = document.getElementById("fullName").value;
+    const phone = document.getElementById("phone").value;
+    const address = document.getElementById("address").value;
+    const city = document.getElementById("city").value;
+    const state = document.getElementById("state").value;
+    const pincode = document.getElementById("pincode").value;
 
-  // Validate phone number
-  const phoneRegex = /^\d{10}$/;
-  if (!phoneRegex.test(phone)) {
-    alert("Please enter a valid 10-digit phone number");
-    return;
-  }
+    const selectedItemsArray = bagItemObject.filter((item) => selectedItems.has(item.id));
+    let orderDetails = "Order Details:\n\n";
+    selectedItemsArray.forEach((item) => {
+      orderDetails += `${item.itemName} - ₹${item.price.currentPrise}\n`;
+    });
+    orderDetails += `\nTotal Amount: ₹${selectedItemsArray.reduce((total, item) => total + item.price.currentPrise, 0)}`;
+    orderDetails += `\n\nDelivery Address:\n${fullName}\n${address}\n${city}, ${state} - ${pincode}\nPhone: ${phone}`;
 
-  // Validate pincode
-  const pincodeRegex = /^\d{6}$/;
-  if (!pincodeRegex.test(pincode)) {
-    alert("Please enter a valid 6-digit PIN code");
-    return;
-  }
+    alert("Thank you for your order!\n\n" + orderDetails);
 
-  // Get only selected items
-  const selectedItemsArray = bagItemObject.filter((item) =>
-    selectedItems.has(item.id)
-  );
-
-  // Create order details message
-  let orderDetails = "Order Details:\n\n";
-  selectedItemsArray.forEach((item) => {
-    orderDetails += `${item.itemName} - ₹${item.price.currentPrise}\n`;
+    localStorage.setItem("bagItems", JSON.stringify([]));
+    this.reset();
+    const modal = document.getElementById("addressModal");
+    if (modal) modal.style.display = "none";
+    initBagPage();
   });
-  orderDetails += `\nTotal Amount: ₹${selectedItemsArray.reduce(
-    (total, item) => total + item.price.currentPrise,
-    0
-  )}`;
-  orderDetails += `\n\nDelivery Address:\n${fullName}\n${address}\n${city}, ${state} - ${pincode}\nPhone: ${phone}`;
+}
 
-  // Show order confirmation
-  alert("Thank you for your order!\n\n" + orderDetails);
+const closeModalBtn = document.querySelector(".close-modal");
+if (closeModalBtn) {
+  closeModalBtn.addEventListener("click", function () {
+    const modal = document.getElementById("addressModal");
+    if (modal) modal.style.display = "none";
+  });
+}
 
-  // Remove checked items from bagItems
-  // const checkedItemIds = Array.from(selectedItems);
-  // bagItems = bagItems.filter((itemId) => !checkedItemIds.includes(itemId));
-
-  // Update localStorage with new bagItems
-  localStorage.setItem("bagItems", JSON.stringify(bagItems));
-
-  // Clear the form and close the modal
-  this.reset();
-  document.getElementById("addressModal").style.display = "none";
-
-  // Reset selected items and update display
-  selectedItems.clear();
-  loadBagItemObject();
-  displayBagIcon();
-  displayBagItems();
-  displayBagSummery();
-});
-
-// Close modal when clicking the X button
-document.querySelector(".close-modal").addEventListener("click", function () {
-  document.getElementById("addressModal").style.display = "none";
-});
-
-// Close modal when clicking outside
-window.addEventListener("click", function (event) {
-  const modal = document.getElementById("addressModal");
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-});
-
-{
-  /* <button class="move-to-bag" onClick="addToBag()">MOVE TO BAG</button> */
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  try { initBagPage(); } catch(e) {}
+} else {
+  document.addEventListener('DOMContentLoaded', () => {
+    try { initBagPage(); } catch(e) {}
+  });
 }

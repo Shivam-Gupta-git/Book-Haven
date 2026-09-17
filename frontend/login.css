@@ -1,74 +1,46 @@
-/* Navbar styles - reusing existing styles */
-#navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
+:root {
+  --color-umber: #8C6046;
+  --color-parchment: #F1E4CC;
+  --color-parchment-light: #FAF5ED;
+  --color-parchment-subtle: #F6EDE0;
+  --color-rosewood: #96584E;
+  --color-rosewood-dark: #7D433A;
+  --color-sage: #798165;
+  --color-sage-dark: #626A50;
+  --color-sage-light: #EBF0E6;
+  --color-ink: #2C2725;
+  --color-ink-light: #423C39;
+  --color-border: #E5D7C0;
 }
 
-#navbar ul {
-  display: flex;
-  list-style: none;
-}
+/* login.css - Clean Auth Styles with Warm 5-Color Aesthetic */
 
-#navbar .item {
-  margin: 0 15px;
-}
-
-#navbar .item a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-#navbar .item a:hover {
-  color: #ff6b6b;
-}
-
-.logo-box {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-}
-
-#check {
-  display: none;
-}
-
-#checkbtn {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* Authentication form styles */
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 80px);
-  background-color: #f8f9fa;
-  padding: 20px;
+  min-height: calc(100vh - 140px);
+  background-color: var(--color-parchment-light);
+  padding: 40px 20px;
 }
 
 .form-container {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(44, 39, 37, 0.08);
+  border: 1px solid var(--color-border);
+  padding: 40px;
   width: 100%;
-  max-width: 450px;
+  max-width: 460px;
 }
 
 .form-container h2 {
   text-align: center;
-  margin-bottom: 30px;
-  color: #333;
-  font-size: 28px;
+  margin-bottom: 24px;
+  color: var(--color-ink);
+  font-family: 'Georgia', serif;
+  font-size: 26px;
+  font-weight: 700;
 }
 
 .input-group {
@@ -78,92 +50,89 @@
 .input-group label {
   display: block;
   margin-bottom: 8px;
-  font-weight: 500;
-  color: #555;
+  font-weight: 600;
+  color: var(--color-sage-dark);
+  font-size: 14px;
 }
 
 .input-group input {
   width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-  transition: border-color 0.3s;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: var(--color-parchment-subtle);
+  color: var(--color-ink);
+  transition: all 0.2s ease;
 }
 
 .input-group input:focus {
-  border-color: #ff6b6b;
+  border-color: var(--color-umber);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(140, 96, 70, 0.12);
   outline: none;
 }
 
 .error-message {
-  color: #e74c3c;
+  color: var(--color-rosewood);
   margin-bottom: 15px;
   font-size: 14px;
   min-height: 20px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .form-container button {
   width: 100%;
-  padding: 12px;
-  background-color: #ff6b6b;
+  padding: 13px;
+  background-color: var(--color-umber);
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: 500;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .form-container button:hover {
-  background-color: #ff5252;
+  background-color: #734C35;
+  transform: translateY(-1px);
 }
 
 .form-footer {
   margin-top: 25px;
   text-align: center;
-  color: #666;
+  color: var(--color-sage-dark);
+  font-size: 14px;
 }
 
 .form-footer a {
-  color: #ff6b6b;
+  color: var(--color-umber);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
 .form-footer a:hover {
+  color: var(--color-rosewood);
   text-decoration: underline;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  #navbar ul {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background-color: #fff;
-    top: 60px;
-    left: -100%;
-    flex-direction: column;
-    text-align: center;
-    transition: all 0.5s;
-    z-index: 999;
-  }
-
-  #checkbtn {
-    display: block;
-  }
-
-  #navbar .item {
-    margin: 15px 0;
-  }
-
-  #check:checked ~ ul {
-    left: 0;
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 20px 14px;
+    min-height: calc(100vh - 120px);
   }
 
   .form-container {
-    padding: 20px;
+    padding: 24px 18px;
+    border-radius: 12px;
   }
-} 
+
+  .form-container h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+}
